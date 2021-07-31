@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SideBar from "./components/Slidebar/SlideBar"
 import './App.css';
+import CityonePage from "./pages/cityone/CityonePage";
+import CityTwo from "./pages/cityone/CityonePage";
+import CityThree from "./pages/cityone/CityonePage";
+import CityFour from "./pages/cityone/CityonePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+       <div className="container">
+       <SideBar />
+    <Switch>
+    {/* <Route exact path="/">
+            <Home />
+          </Route> */}
+          <Route path="/hyderabad">
+          <CityonePage />
+          </Route>
+          <Route path="/tanuku">
+          <CityTwo />
+          </Route>
+          <Route path="/bhimavaram">
+          <CityThree />
+          </Route>
+          <Route path="/rajahmundry">
+          <CityFour />
+          </Route>
+      </Switch>
+      </div>
+      </Router>
   );
 }
 
